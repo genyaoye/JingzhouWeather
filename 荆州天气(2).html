@@ -1,0 +1,27 @@
+<html>
+<title>荆州天气</title>
+<body>
+
+<script>
+if (window.XMLHttpRequest)
+{// code for IE7+, Firefox, Chrome, Opera, Safari
+xmlhttp=new XMLHttpRequest();
+}
+else
+{// code for IE6, IE5
+xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.open("GET","http://www.webxml.com.cn/WebServices/WeatherWS.asmx/getWeather?theCityCode=1571&theUserID=",false);//中央气象台webservices借口
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML;
+var x=xmlDoc.getElementsByTagName("string");
+for (i=0;i<8;i++)
+{
+document.write(x[i].childNodes[0].nodeValue+"</br>");
+
+}
+
+</script>
+
+</body>
+</html>
